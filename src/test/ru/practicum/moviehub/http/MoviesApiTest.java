@@ -43,7 +43,7 @@ public class MoviesApiTest {
 
     @Test
     @DisplayName("Получение всех фильмов")
-    void Test_getMovies_whenStorageIsEmpty_thenReturnsEmptyArray() throws Exception {
+    void test_getMovies_whenStorageIsEmpty_thenReturnsEmptyArray() throws Exception {
         // Given
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(BASE + "/movies"))
@@ -67,7 +67,7 @@ public class MoviesApiTest {
 
     @Test
     @DisplayName("Добавление фильма")
-    void Test_getMovies_afterMovieIsCreated_thenReturnsMovieInArray() throws Exception {
+    void test_getMovies_afterMovieIsCreated_thenReturnsMovieInArray() throws Exception {
         // Given
         Gson gson = new Gson();
         MovieRequest body = new MovieRequest("Шрек", 2000);
@@ -101,7 +101,7 @@ public class MoviesApiTest {
 
     @Test
     @DisplayName("Получение фильма по id")
-    void Test_getMovieById_afterMovieIsCreated_thenReturnsMovieObject() throws Exception {
+    void test_getMovieById_afterMovieIsCreated_thenReturnsMovieObject() throws Exception {
         // Given
         Gson gson = new Gson();
         MovieRequest body = new MovieRequest("Шрек", 2000);
@@ -143,7 +143,7 @@ public class MoviesApiTest {
 
     @Test
     @DisplayName("Удаление фильма по id")
-    void Test_deleteMovieById_afterMovieIsCreated_thenReturns204() throws Exception {
+    void test_deleteMovieById_afterMovieIsCreated_thenReturns204() throws Exception {
         // Given
         Gson gson = new Gson();
         MovieRequest body = new MovieRequest("Шрек", 2000);
@@ -171,7 +171,7 @@ public class MoviesApiTest {
 
     @Test
     @DisplayName("Получение фильмов по году")
-    void Test_whenFilteredByYear_thenReturnsMoviesWithThatYear() throws Exception {
+    void test_whenFilteredByYear_thenReturnsMoviesWithThatYear() throws Exception {
         // Given
         Gson gson = new Gson();
         MovieRequest body = new MovieRequest("Шрек", 2000);

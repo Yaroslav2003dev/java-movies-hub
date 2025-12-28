@@ -8,30 +8,30 @@ import java.util.List;
 import java.util.Optional;
 
 public class MoviesStore {
-    HashMap<Integer, List<Movie>> movies= new HashMap<>();
+    HashMap<Integer, List<Movie>> movies = new HashMap<>();
 
-    public List<Movie> getMoviesByYear(int year){
+    public List<Movie> getMoviesByYear(int year) {
         return movies.get(year);
     }
 
-    public List<Movie> getAll(){
+    public List<Movie> getAll() {
         return movies.values()
                 .stream()
                 .flatMap(List::stream)
                 .toList();
     }
 
-    public void add(int year, Movie movie){
+    public void add(int year, Movie movie) {
         List<Movie> copyMovies = Optional
                 .ofNullable(movies.get(year))
                 .orElseGet(ArrayList::new);
         copyMovies.add(movie);
-        movies.put(year,copyMovies);
+        movies.put(year, copyMovies);
 
 
     }
 
-    public void clear(){
+    public void clear() {
         movies.clear();
     }
 
@@ -41,19 +41,19 @@ public class MoviesStore {
                 int year = movie.getYear();
                 List<Movie> copyMovies = movies.get(year);
                 copyMovies.remove(movie);
-                movies.put(year,copyMovies);
+                movies.put(year, copyMovies);
             }
         }
 
     }
 
-    public Movie getMovieById(int id){
-    for(Movie movie : getAll()){
-        if(movie.getId()==id){
-            return movie;
+    public Movie getMovieById(int id) {
+        for (Movie movie : getAll()) {
+            if (movie.getId() == id) {
+                return movie;
+            }
         }
-    }
-    return null;
+        return null;
     }
 
 }

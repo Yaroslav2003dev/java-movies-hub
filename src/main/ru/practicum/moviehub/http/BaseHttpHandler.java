@@ -14,7 +14,7 @@ public abstract class BaseHttpHandler implements HttpHandler {
 
         byte[] bytes = json.getBytes(StandardCharsets.UTF_8);
 
-        ex.getResponseHeaders().set("Content-Type",CT_JSON);
+        ex.getResponseHeaders().set("Content-Type", CT_JSON);
         ex.sendResponseHeaders(status, bytes.length);
 
         try (OutputStream os = ex.getResponseBody()) {
@@ -23,8 +23,8 @@ public abstract class BaseHttpHandler implements HttpHandler {
     }
 
     protected void sendNoContent(HttpExchange ex) throws java.io.IOException {
-        ex.getResponseHeaders().set("Content-Type",CT_JSON);
-        ex.sendResponseHeaders(204,-1);
+        ex.getResponseHeaders().set("Content-Type", CT_JSON);
+        ex.sendResponseHeaders(204, -1);
     }
 
     protected void sendStatus(HttpExchange ex, int status) throws IOException {

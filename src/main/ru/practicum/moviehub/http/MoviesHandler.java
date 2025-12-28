@@ -25,7 +25,7 @@ public class MoviesHandler extends BaseHttpHandler {
         String path = ex.getRequestURI().getPath();
         String query = ex.getRequestURI().getQuery();
         if (query != null && query.startsWith("year=")) {
-            handleFilter(ex,query.substring(5));
+            handleFilter(ex, query.substring(5));
         } else {
             String[] parts = path.split("/");
             boolean hasId = parts.length > 2 && !parts[2].isBlank();
@@ -160,7 +160,7 @@ public class MoviesHandler extends BaseHttpHandler {
 
         try {
             int yearMovies = Integer.parseInt(year);
-                List<Movie> listMovies = store.getMoviesByYear(yearMovies);
+            List<Movie> listMovies = store.getMoviesByYear(yearMovies);
 
             if (listMovies == null) {
                 listMovies = List.of();
