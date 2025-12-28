@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class MoviesApiTest {
-    private static final String BASE = "http://localhost:8080"; // !!! добавьте базовую часть URL
+    private static final String BASE = "http://localhost:8080";
     private static MoviesServer server;
     private static HttpClient client;
 
@@ -130,12 +130,12 @@ public class MoviesApiTest {
 
         String title = jsonObject.get("title").getAsString();
         int year = jsonObject.get("year").getAsInt();
-        int resp_id = jsonObject.get("id").getAsInt();
+        int respId = jsonObject.get("id").getAsInt();
 
         // Then
         Assertions.assertTrue(title.equals(body.title));
         Assertions.assertTrue(year == body.year);
-        Assertions.assertTrue(id == resp_id);
+        Assertions.assertTrue(id == respId);
         assertEquals(200, resp.statusCode(), "GET /movies должен вернуть 200");
 
     }
